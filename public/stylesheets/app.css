@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 50px;
+  background: #eee;
+}
+
+.contract {
+  float: left;
+  padding: 50px;
+  background: #fff;
+  width: 850px;
+  height: 1100px;
+}
+
+.contract-title {
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.available-sections {
+  height: 1100px;
+  float: left;
+  margin: 0 0 0 50px;
+}
+
+.contract-sections {
+  width: 500px;
+  margin: 0;
+  height: 1000px;
+}
+
+.available-sections .section {
+  width: 300px;
+  max-height: 150px;
+  overflow: scroll;
+}
+
+.section {
+  background: #fff;
+  padding: 25px;
+  cursor: default;
+}
+
+.section:hover {
+  background: #eee;
+}
+
+.company {
+  background: yellow;
+  cursor: pointer;
+}
