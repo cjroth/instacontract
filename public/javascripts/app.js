@@ -26,7 +26,11 @@
     }, 500);
   });
 
-  var insideSectionClick, outsideSectionClick;
+  $('.company').on('keyup', function() {
+    console.log('changed');
+  });
+
+  var insideEditableClick, outsideEditableClick;
 
   var startEditing = function($e, event) {
     $('.section-list').removeClass('sortable').addClass('editing');
@@ -34,26 +38,28 @@
     $('.section-list').sortable('disable');
     $e.attr('contentEditable', 'true');
     $e.focus();
-    insideSectionClick = function(e) {
+    insideEditableClick = function(e) {
       e.stopPropagation();
     };
-    outsideSectionClick = function(e) {
+    outsideEditableClick = function(e) {
       stopEditing($e, e);
     };
-    $e.on('click', insideSectionClick);
-    $('body').on('click', outsideSectionClick);
+    $e.on('click', insideEditableClick);
+    $('body').on('mousedown', outsideEditableClick);
   };
 
   var stopEditing = function($e, event) {
     $('.section-list').addClass('sortable').removeClass('editing');
-    $e.removeClass('editing');
+    $e
+      .removeClass('editing')
+      .attr('contentEditable', 'false')
+      .off('click', insideEditableClick)
+      ;
     $('.section-list').sortable('enable');
-    $e.attr('contentEditable', 'false');
-    $('body').off('click', outsideSectionClick);
-    $e.off('click', insideSectionClick);
+    $('body').off('click', outsideEditableClick);
   };
 
-  $('.section').dblclick(function(e) {
+  $('.editable').dblclick(function(e) {
     startEditing($(this), e);
   });
 
