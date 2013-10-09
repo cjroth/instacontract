@@ -44,8 +44,9 @@
     outsideEditableClick = function(e) {
       stopEditing($e, e);
     };
-    $e.on('click', insideEditableClick);
-    $('body').on('mousedown', outsideEditableClick);
+    var escapeEditModeEvent = 'mousedown';
+    $e.on(escapeEditModeEvent, insideEditableClick);
+    $('body').on(escapeEditModeEvent, outsideEditableClick);
   };
 
   var stopEditing = function($e, event) {
