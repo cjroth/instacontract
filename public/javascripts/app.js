@@ -45,4 +45,29 @@
     return false;
   });
 
+  $('.available-sections-search-box input').on('keyup', function() {
+
+    var s = $(this).val().toLowerCase();
+
+    if (!s) {
+      $('.available-sections .section').show();
+    }
+
+    $('.available-sections .section').each(function() {
+
+      if (!$(this).text().toLowerCase().match(s)) {
+        $(this).hide();
+        return;
+      }
+
+      $(this).show();
+
+    });
+
+  });
+
+  $('.available-sections-search-box .clear').click(function() {
+    $('.available-sections-search-box input').val('').trigger('keyup').focus();
+  });
+
 })();

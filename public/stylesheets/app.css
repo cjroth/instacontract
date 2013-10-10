@@ -19,10 +19,14 @@ body {
   text-align: center;
 }
 
-.available-sections {
-  height: 1100px;
+.sidebar {
   float: left;
   margin: 0 0 0 50px;
+  width: 350px;
+}
+
+.available-sections {
+  height: 1100px;
 }
 
 .contract-sections {
@@ -31,7 +35,6 @@ body {
 }
 
 .available-sections .section {
-  width: 300px;
   max-height: 150px;
   overflow: scroll;
 }
@@ -69,4 +72,16 @@ body {
 
 .available-sections .section:hover .title {
   display: none;
+}
+
+.available-sections-search-box {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.available-sections-search-box .clear {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
 }
