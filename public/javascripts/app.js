@@ -1,6 +1,5 @@
 (function() {
 
-
   $('.section-list').sortable({ connectWith: '.section-list' });
 
   $('.modal .btn-submit').click(function() {
@@ -22,46 +21,28 @@
   $('.company').click(function() {
     $('#edit-company').modal('show');
     setTimeout(function() {
-      $('#name').focus();
+      $('[name="company"]').focus();
     }, 500);
   });
 
-  $('.company').on('keyup', function() {
-    console.log('changed');
+  $('.section').dblclick(function(e) {
+    var $section = $(this);
+    var $modal = $('#edit-section');
+    var $input = $modal.find('[name="section"]');
+    $modal.modal('show');
+    $input.html($section.html());
+    $modal.find('[name="section-id"]').val($section.attr('id'));
+    setTimeout(function() {
+      $input.focus();
+    }, 500);
   });
 
-  var insideEditableClick, outsideEditableClick;
-
-  var startEditing = function($e, event) {
-    $('.section-list').removeClass('sortable').addClass('editing');
-    $e.addClass('editing');
-    $('.section-list').sortable('disable');
-    $e.attr('contentEditable', 'true');
-    $e.focus();
-    insideEditableClick = function(e) {
-      e.stopPropagation();
-    };
-    outsideEditableClick = function(e) {
-      stopEditing($e, e);
-    };
-    var escapeEditModeEvent = 'mousedown';
-    $e.on(escapeEditModeEvent, insideEditableClick);
-    $('body').on(escapeEditModeEvent, outsideEditableClick);
-  };
-
-  var stopEditing = function($e, event) {
-    $('.section-list').addClass('sortable').removeClass('editing');
-    $e
-      .removeClass('editing')
-      .attr('contentEditable', 'false')
-      .off('click', insideEditableClick)
-      ;
-    $('.section-list').sortable('enable');
-    $('body').off('click', outsideEditableClick);
-  };
-
-  $('.editable').dblclick(function(e) {
-    startEditing($(this), e);
+  $('#edit-section form').on('submit', function() {
+    var sectionId = $(this).find('[name="section-id"]').val();
+    var html = $(this).find('[name="section"]').html();
+    $('#' + sectionId).html(html);
+    $(this).parents('.modal').modal('hide');
+    return false;
   });
 
 })();

@@ -14,11 +14,11 @@
 
       <ol class="contract-sections section-list sortable">
 
-        <li class="section editable" title="Consultation Services">
+        <li id="section-1" class="section editable" title="Consultation Services">
           Contractor shall confer with the officers and employees of <span class="company"></span> concerning matters relating to the management and organization of <span class="company"></span>, their financial policies, the terms and conditions of employment, and generally any matter arising out of the business affairs of <span class="company"></span>. <span class="company"></span> and Contractor shall mutually agree upon project milestones and deliverables to be achieved or provided during the term of this Agreement. Contractor shall perform all services necessary to meet such project milestones and provide such project deliverables.
         </li>
 
-        <li class="section editable" title="Consultation Services">
+        <li id="section-2" class="section editable" title="Consultation Services">
         This is a gigantic section.
         </li>
 
@@ -28,7 +28,7 @@
 
     <ul class="available-sections section-list list-unstyled sortable">
 
-      <li class="section editable" title="">
+      <li id="section-3" class="section editable" title="">
         Contractor shall not be authorized to incur on behalf of <span class="company"></span> any expenses and will be responsible for all expenses incurred while performing the Services unless otherwise agreed to by <span class="company"></span>, which consent shall be evidenced in writing for any expenses in excess of $10. As a condition to receipt of reimbursement, Contractor shall be required to submit to <span class="company"></span> reasonable evidence that the amount involved was both reasonable and necessary to the Services provided under this Agreement.
       </li>
 
@@ -46,8 +46,32 @@
             <form role="form">
               <div class="form-group">
                 <label for="company">Name of company</label>
-                <input type="text" class="form-control" id="name" name="company" placeholder="Enter company">
+                <input type="text" class="form-control" name="company" placeholder="Enter company">
               </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary btn-success btn-submit">OK</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+   <!-- Modal -->
+    <div class="modal fade" id="edit-section" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Edit Section</h4>
+          </div>
+          <div class="modal-body">
+            <form role="form">
+              <div class="form-group">
+                <div name="section" contenteditable></div>
+              </div>
+              <input type="hidden" name="section-id"></input>
             </form>
           </div>
           <div class="modal-footer">

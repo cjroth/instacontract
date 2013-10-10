@@ -42,10 +42,6 @@ body {
   cursor: default;
 }
 
-.editable.editing {
-   box-shadow: inset 0 0 10px #ccc;
-}
-
 .sortable .section:hover {
   background: #eee;
 }
@@ -53,4 +49,8 @@ body {
 .company {
   background: yellow;
   cursor: pointer;
+}
+
+[name="section"] {
+  padding: 20px;
 }
