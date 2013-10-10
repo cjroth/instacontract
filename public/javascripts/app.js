@@ -30,7 +30,7 @@
     var $modal = $('#edit-section');
     var $input = $modal.find('[name="section"]');
     $modal.modal('show');
-    $input.html($section.html());
+    $input.html($section.find('.content').html());
     $modal.find('[name="section-id"]').val($section.attr('id'));
     setTimeout(function() {
       $input.focus();
@@ -40,7 +40,7 @@
   $('#edit-section form').on('submit', function() {
     var sectionId = $(this).find('[name="section-id"]').val();
     var html = $(this).find('[name="section"]').html();
-    $('#' + sectionId).html(html);
+    $('#' + sectionId).find('.content').html(html);
     $(this).parents('.modal').modal('hide');
     return false;
   });

@@ -54,3 +54,19 @@ body {
 [name="section"] {
   padding: 20px;
 }
+
+.contract-sections .title {
+  display: none;
+}
+
+.available-sections .section .content {
+  display: none;
+}
+
+.available-sections .section:hover .content {
+  display: block;
+}
+
+.available-sections .section:hover .title {
+  display: none;
+}
