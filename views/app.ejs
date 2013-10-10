@@ -14,17 +14,24 @@
 
       <ol class="contract-sections section-list sortable">
 
-        <li id="section-1" class="section editable" title="Consultation Services">
+        <li id="section-1" class="section editable">
           <div class="title">Consultation Services</div>
           <div class="content">
-            Contractor shall confer with the officers and employees of <span class="company"></span> concerning matters relating to the management and organization of <span class="company"></span>, their financial policies, the terms and conditions of employment, and generally any matter arising out of the business affairs of <span class="company"></span>. <span class="company"></span> and Contractor shall mutually agree upon project milestones and deliverables to be achieved or provided during the term of this Agreement. Contractor shall perform all services necessary to meet such project milestones and provide such project deliverables.
+            Contractor shall confer with the officers and employees of <span class="var" data-var="company">Company</span> concerning matters relating to the management and organization of <span class="var" data-var="company">Company</span>, their financial policies, the terms and conditions of employment, and generally any matter arising out of the business affairs of <span class="var" data-var="company">Company</span>. <span class="var" data-var="company">Company</span> and Contractor shall mutually agree upon project milestones and deliverables to be achieved or provided during the term of this Agreement. Contractor shall perform all services necessary to meet such project milestones and provide such project deliverables.
           </div>
         </li>
 
-        <li id="section-2" class="section editable" title="Consultation Services">
-          <div class="title">Consultation Services</div>
+        <li id="section-2" class="section editable">
+          <div class="title">Expenses</div>
           <div class="content">
-            Contractor shall confer with the officers and employees of <span class="company"></span> concerning matters relating to the management and organization of <span class="company"></span>, their financial policies, the terms and conditions of employment, and generally any matter arising out of the business affairs of <span class="company"></span>. <span class="company"></span> and Contractor shall mutually agree upon project milestones and deliverables to be achieved or provided during the term of this Agreement. Contractor shall perform all services necessary to meet such project milestones and provide such project deliverables.
+            <span class="var" data-var="contractor">Contractor</span> shall not be authorized to incur on behalf of the <span class="var" data-var="company">Company</span> any expenses and will be responsible for all expenses incurred while performing the Services unless otherwise agreed to by the Company, which consent shall be evidenced in writing for any expenses in excess of $10. As a condition to receipt of reimbursement, <span class="var" data-var="contractor">Contractor</span> shall be required to submit to the <span class="var" data-var="company">Company</span> reasonable evidence that the amount involved was both reasonable and necessary to the Services provided under this Agreement.
+          </div>
+        </li>
+
+        <li id="section-3" class="section editable">
+          <div class="title">Terms of Agreement</div>
+          <div class="content">
+            This agreement will begin <span class="var" data-var="begin-date">May 1st, 2013</span> and terminate on the earlier of (a) the date <span class="var" data-var="contractor">Contractor</span> completes the provision of the Services to the <span class="var" data-var="company">Company</span> under this Agreement, or (b) <span class="var" data-var="end-date">August 1st, 2013</span>. Either party may cancel this agreement on <span class="var" data-var"days-to-cancel">fourteen (14)</span> days notice to the other party in writing, by certified mail or personal delivery. The <span class="var" data-var="contractor">Contractor</span> and the <span class="var" data-var="company">Company</span> may extend the termination date of this agreement by signing a written agreement of extension.
           </div>
         </li>
 
@@ -38,34 +45,28 @@
         <span class="glyphicon glyphicon-remove-circle clear"></span>
       </div>
       <ul class="available-sections section-list list-unstyled sortable">
-        <li id="section-3" class="section editable" title="">
-          <div class="title">Consultation Services</div>
+        <li id="section-4" class="section editable">
+          <div class="title">Time Devoted by Contractor</div>
           <div class="content">
-            Contractor shall confer with the officers and employees of <span class="company"></span> concerning matters relating to the management and organization of <span class="company"></span>, their financial policies, the terms and conditions of employment, and generally any matter arising out of the business affairs of <span class="company"></span>. <span class="company"></span> and Contractor shall mutually agree upon project milestones and deliverables to be achieved or provided during the term of this Agreement. Contractor shall perform all services necessary to meet such project milestones and provide such project deliverables.
-          </div>
-        </li>
-        <li id="section-4" class="section editable" title="">
-          <div class="title">More Consultation Services</div>
-          <div class="content">
-            Contractor shall confer with the officers and employees of <span class="company"></span> concerning matters relating to the management and organization of <span class="company"></span>, their financial policies, the terms and conditions of employment, and generally any matter arising out of the business affairs of <span class="company"></span>. <span class="company"></span> and Contractor shall mutually agree upon project milestones and deliverables to be achieved or provided during the term of this Agreement. Contractor shall perform all services necessary to meet such project milestones and provide such project deliverables.
+            It is anticipated the <span class="var" data-var="contractor">Contractor</span> will spend approximately twenty (20) hours per week in fulfilling its obligations under this contract. The particular amount of time may vary from day to day or week to week. However, the <span class="var" data-var="contractor">Contractor</span> shall devote a minimum of sixty (60) hours per month to its duties in accordance with this agreement.
           </div>
         </li>
       </ul>
     </div>
 
    <!-- Modal -->
-    <div class="modal fade" id="edit-company" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="edit-var" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Edit Field</h4>
+            <h4 class="modal-title">Edit Variable</h4>
           </div>
           <div class="modal-body">
             <form role="form">
               <div class="form-group">
-                <label for="company">Name of company</label>
-                <input type="text" class="form-control" name="company" placeholder="Enter company">
+                <input type="text" class="form-control" name="value">
+                <input type="hidden" name="var"></input>
               </div>
             </form>
           </div>

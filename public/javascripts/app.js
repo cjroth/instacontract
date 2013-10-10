@@ -7,21 +7,21 @@
     $modal.find('form').submit();
   });
 
-  $('.company').text('Company');
-
-  $('#edit-company form').submit(function() {
-    var val = $('#edit-company [name="company"]').val();
+  $('#edit-var form').submit(function() {
+    var val = $('#edit-var [name="value"]').val();
     if (!val.length) return false;
-    $('.company').text(val);
+    $('[data-var="' + $('#edit-var [name="var"]').val() + '"]').text(val);
     var $modal = $(this).parents('.modal');
     $modal.modal('hide');
     return false;
   });
 
-  $('.company').click(function() {
-    $('#edit-company').modal('show');
+  $('.var').click(function() {
+    $('#edit-var').find('[name="var"]').val($(this).data('var'));
+    $('#edit-var').find('[name="value"]').val($(this).text());
+    $('#edit-var').modal('show');
     setTimeout(function() {
-      $('[name="company"]').focus();
+      $('[name="value"]').focus();
     }, 500);
   });
 
