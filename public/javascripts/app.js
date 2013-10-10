@@ -18,6 +18,13 @@
 
   $('.var').click(function() {
     $('#edit-var').find('[name="var"]').val($(this).data('var'));
+    var $newInput;
+    if (this.tagName.toLowerCase() === 'div') {
+      $newInput = $('<textarea class="form-control" name="value"></textarea>');
+    } else {
+      $newInput = $('<input type="text" class="form-control" name="value"></input>');
+    }
+    $('#edit-var').find('[name="value"]').replaceWith($newInput);
     $('#edit-var').find('[name="value"]').val($(this).text());
     $('#edit-var').modal('show');
     setTimeout(function() {
@@ -51,20 +58,21 @@
 
     if (!s) {
       $('.available-sections .section').show();
+      $('.available-sections-search-box .clear').hide();
+      return;
     }
 
-    $('.available-sections .section').each(function() {
+    $('.available-sections-search-box .clear').show();
 
+    $('.available-sections .section').each(function() {
       if (!$(this).text().toLowerCase().match(s)) {
         $(this).hide();
         return;
       }
-
       $(this).show();
-
     });
 
-  });
+  }).trigger('keyup');
 
   $('.available-sections-search-box .clear').click(function() {
     $('.available-sections-search-box input').val('').trigger('keyup').focus();

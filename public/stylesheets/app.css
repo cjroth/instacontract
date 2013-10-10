@@ -9,7 +9,6 @@ body {
   padding: 50px;
   background: #fff;
   width: 850px;
-  height: 1100px;
 }
 
 .contract-title {
@@ -31,7 +30,6 @@ body {
 
 .contract-sections {
   margin: 0;
-  height: 1000px;
 }
 
 .available-sections .section {
@@ -43,14 +41,15 @@ body {
   background: #fff;
   padding: 25px;
   cursor: default;
+  border: 1px solid transparent;
 }
 
 .sortable .section:hover {
-  background: #eee;
+  border: 1px dotted #000;
 }
 
 .var {
-  background: yellow;
+  border-bottom: 1px dotted #000;
   cursor: pointer;
 }
 
@@ -84,4 +83,41 @@ body {
   right: 10px;
   top: 10px;
   cursor: pointer;
+}
+
+.contract-footer .title {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.company-signature, .contractor-signature {
+  width: 375px;
+  float: left;
+  padding: 25px;
+}
+
+.company-signature {
+}
+
+.contractor-signature {
+}
+
+.signature {
+  width: 100%;
+  border-bottom: 1px solid #000;
+  height: 100px;
+}
+
+.signature-label div {
+  float: left;
+  font-size: 10pt;
+}
+
+.signature-label div:last-child {
+  float: right;
+}
+
+#edit-var textarea {
+  height: 200px;
+  padding: 10px;
 }
