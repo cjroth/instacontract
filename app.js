@@ -68,7 +68,7 @@ http.createServer(app).listen(app.get('port'), function(){
 
 phantom.create(function(ph) {
   ph.createPage(function(page) {
-    page.open("http://wolfexchange.com/", function(status) {
+    page.open("http://localhost:3333", function(status) {
         page.render('test.pdf', function(){
           console.log('Page Rendered');
           ph.exit();
