@@ -121,3 +121,11 @@ body {
   height: 200px;
   padding: 10px;
 }
+
+[name="new-section-content"] {
+  height: 200px;
+}
+
+.placeholder {
+  color: #999;
+}

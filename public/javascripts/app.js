@@ -1,5 +1,7 @@
 (function() {
 
+  var vars = {};
+
   $('.section-list').sortable({ connectWith: '.section-list' });
 
   $('.modal .btn-submit').click(function() {
@@ -9,10 +11,12 @@
 
   $('#edit-var form').submit(function() {
     var val = $('#edit-var [name="value"]').val();
+    var varname = $('#edit-var [name="var"]').val();
     if (!val.length) return false;
-    $('[data-var="' + $('#edit-var [name="var"]').val() + '"]').text(val);
+    $('[data-var="' + varname + '"]').text(val);
     var $modal = $(this).parents('.modal');
     $modal.modal('hide');
+    vars[varname] = val;
     return false;
   });
 
@@ -32,7 +36,7 @@
     }, 500);
   });
 
-  $('.section').dblclick(function(e) {
+  $('.section-list').delegate('.section', 'dblclick', function(e) {
     var $section = $(this);
     var $modal = $('#edit-section');
     var $input = $modal.find('[name="section"]');
@@ -74,8 +78,48 @@
 
   }).trigger('keyup');
 
+  $('[name="new-section"]').click(function() {
+    $('#new-section').modal('show');
+    setTimeout(function() {
+      $('[name="content"]').focus();
+    }, 500);
+  });
+
+  $('#new-section form').on('submit', function() {
+    var content = $(this).find('[name="new-section-content"]').html();
+    var title = $(this).find('[name="new-section-title"]').val();
+    if (!content || !title) return;
+    var t = renderSection({
+      title: title,
+      content: content
+    });
+    $(t).appendTo('.contract-sections');
+    $(this).parents('.modal').modal('hide');
+    return false;
+  });
+
   $('.available-sections-search-box .clear').click(function() {
     $('.available-sections-search-box input').val('').trigger('keyup').focus();
+  });
+
+  var renderSection = function(data) {
+    var html = $('#section-template').html();
+    html = html.replace(/{{id}}/g, data.id || '');
+    html = html.replace(/{{title}}/g, data.title || '');
+    html = html.replace(/{{content}}/g, data.content || '');
+    return html;
+  };
+
+  $('[name="new-section-content"]').blur(function() {
+    if (!$(this).html().length) {
+      $(this).html('Enter section content').addClass('placeholder');
+    }
+  });
+
+  $('[name="new-section-content"]').focus(function() {
+    if ($(this).hasClass('placeholder')) {
+      $(this).html('').removeClass('placeholder');
+    }
   });
 
 })();
