@@ -62,17 +62,50 @@ app.get('/', function(req, res) {
   });
 });
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
-
-phantom.create(function(ph) {
-  ph.createPage(function(page) {
-    page.open("http://localhost:3333", function(status) {
-        page.render('test.pdf', function(){
-          console.log('Page Rendered');
-          ph.exit();
+app.get('/print', function(req, res) {
+  /*
+   * @todo (important) - find an unused port! there is a stackoverflow thing about this.
+   */
+  phantom.create({ port: 1623, binary: config.phantomjs.binary }, function(ph) {
+    ph.createPage(function(page) {
+      page.set('paperSize', { format: 'A', orientation: 'portrait', border: '.5in' }, function (result) {
+        page.open("http://localhost:3000/", function(status) {
+          page.render('temp.pdf', function() {
+            ph.exit();
+            res.type('pdf').send(fs.readFileSync('temp.pdf'));
+          });
         });
+      });
     });
   });
+});
+
+app.post('/print', function(req, res) {
+
+  req.body = {
+    sections: ['text', 'text', 'text'],
+    vars: {
+      'title': 'test',
+      'contractor': 'Imaginary, LLC',
+      'contractor-address': 'Blah blah\nblahblah',
+      'company-signor': 'Matt Tomasulo, CEO',
+      'company': 'Walk [Your City]',
+      'company-address': 'Blah blah\nblahblah'
+    }
+  };
+
+  res.render()
+
+});
+
+// app.get('/test.pdf', function(req, res) {
+//   res.type('pdf');
+//   var wkhtml = require('node-wkhtml');
+//   wkhtml
+//     .spawn('pdf', 'http://localhost:3000')
+//     .stdout.pipe(res);
+// });
+
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
 });

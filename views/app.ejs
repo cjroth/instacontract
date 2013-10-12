@@ -3,52 +3,12 @@
   <head>
     <title>InstaContract</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/bootstrap/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="/stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/app.css" rel="stylesheet" type="text/css">
   </head>
   <body class="app">
 
-    <div class="contract">
-
-      <div class="contract-title editable"><span class="var" data-var="contract-title">Independent Contractor Services Agreement</span></div>
-
-      <ol class="contract-sections section-list sortable">
-        <% for (var i in sections) { %>
-          <li id="<%= sections[i].id %>" class="section editable">
-            <div class="title"><%= sections[i].title %></div>
-            <div class="content"><%- convertSection(sections[i].content) %></div>
-          </li>
-        <% } %>
-      </ol>
-
-      <div class="contract-footer">
-        <div class="company-signature">
-          <div class="title"><span class="var" data-var="company">Company</span></div>
-          <div class="var" data-var="company-address">Walk [Your City], Inc.<br />
-133 1/2 E. FRANKLIN ST. SUITE 104<br />
-Chapel Hill, NC 27514<br />
-United States of America</div>
-          <div class="signature"></div>
-          <div class="signature-label">
-            <div class="name"><span class="var" data-var="company-signer">Matt Tomasulo, CEO</span></div>
-            <div class="date">Date</div>
-          </div>
-        </div>
-        <div class="contractor-signature">
-          <div class="title"><span class="var" data-var="contractor">Contractor</span></div>
-          <div class="var" data-var="contractor-address">Imaginary, LLC<br />
-Weserhausen Straße 59<br />
-11023 Berlin, Berlin<br />
-Germany</div>
-          <div class="signature"></div>
-          <div class="signature-label">
-            <div class="name"><span class="var" data-var="contractor-signer">Chris Roth</span></div>
-            <div class="date">Date</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <% include contract %>
 
     <div class="sidebar">
       <div class="available-sections-search-box">
