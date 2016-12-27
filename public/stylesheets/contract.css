@@ -4,35 +4,6 @@ body {
   background: #eee;
 }
 
-.available-sections .section .content {
-  display: none;
-}
-
-.available-sections .section:hover .content {
-  display: block;
-}
-
-.available-sections .section:hover .title {
-  display: none;
-}
-
-.available-sections-search-box {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.available-sections-search-box .clear {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
-}
-
-.available-sections .section {
-  max-height: 150px;
-  overflow: scroll;
-}
-
 .contract {
   float: left;
   padding: 50px;
@@ -47,16 +18,6 @@ body {
   text-align: center;
 }
 
-.sidebar {
-  float: left;
-  margin: 0 0 0 50px;
-  width: 350px;
-}
-
-.available-sections {
-  height: 1100px;
-}
-
 .contract-sections {
   margin: 0;
 }
@@ -66,15 +27,6 @@ body {
   padding: 25px;
   cursor: default;
   border: 1px solid transparent;
-}
-
-.sortable .section:hover {
-  border: 1px dotted #000;
-}
-
-.var {
-  border-bottom: 1px dotted #000;
-  cursor: pointer;
 }
 
 [name="section"] {
@@ -115,17 +67,4 @@ body {
 
 .signature-label div:last-child {
   float: right;
-}
-
-#edit-var textarea {
-  height: 200px;
-  padding: 10px;
-}
-
-[name="new-section-content"] {
-  height: 200px;
-}
-
-.placeholder {
-  color: #999;
 }

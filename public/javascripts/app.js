@@ -1,6 +1,7 @@
 (function() {
 
   var vars = {};
+  var id = $('.contract').data('id');
 
   $('.section-list').sortable({ connectWith: '.section-list' });
 
@@ -17,6 +18,9 @@
     var $modal = $(this).parents('.modal');
     $modal.modal('hide');
     vars[varname] = val;
+    $.post('/contract/' + id, {
+      vars: vars
+    });
     return false;
   });
 

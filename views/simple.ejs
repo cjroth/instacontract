@@ -3,18 +3,16 @@
   <div class="contract-title editable"><span class="var" data-var="contract-title"><%- vars['title'] %></span></div>
 
   <ol class="contract-sections section-list sortable">
-    <% for (var i in sections) { %>
       <li id="<%= sections[i].id %>" class="section editable">
-        <div class="title"><%= sections[i].title %></div>
-        <div class="content"><%- convertSection(sections[i].content) %></div>
+        <div class="title">Test</div>
+        <div class="content">Hello</div>
       </li>
-    <% } %>
   </ol>
 
   <div class="contract-footer">
     <div class="company-signature">
-      <div class="title"><span class="var" data-var="company"><%- vars['company'] %></span></div>
-      <div class="var" data-var="company-address"><%- vars['company-address'] %></div>
+      <div class="title"><span class="var" data-var="company">Imaginary, LLC</span></div>
+      <div class="var" data-var="company-address">2221 Walnut Street</div>
       <div class="signature"></div>
       <div class="signature-label">
         <div class="name"><span class="var" data-var="company-signer"><%- vars['company-signer'] %></span></div>
